@@ -1,0 +1,21 @@
+<h4>Ground Details</h4>
+
+Name : <%= @grounddetail.name %><br>
+Opening Time : <%= @grounddetail.working_hours.strftime("%l:%M %P") %> To <%= @grounddetail.end_time.strftime("%l:%M %P") %><br>
+Address: <%= @grounddetail.address %><br>
+Contact Number: <%= @grounddetail.contact_no %><br>
+Email Address: <%= @grounddetail.email %><br>
+Number Of Grounds: <%= @grounddetail.number_of_grounds %><br>
+Description: <%= @grounddetail.description %><br>
+Featured : <%= @grounddetail.featured_ground%><br>
+
+<% if admin_signed_in? %>
+  <%= link_to "Edit", edit_grounddetail_path %> |
+  <%= link_to 'Delete Ground', grounddetail_path,method: :delete, data: {confirm: 'Are you sure?' } %> |
+  <%= link_to "Add price", new_grounddetail_price_path(@grounddetail) %> |
+  <%= link_to "Timing And Prices", grounddetail_prices_path(@grounddetail) %> |
+<% end %>
+
+<%= link_to "Add Pitch", new_grounddetail_pitch_path(@grounddetail) %> |
+<%= link_to "All Pitch", grounddetail_pitches_path(@grounddetail) %>
+

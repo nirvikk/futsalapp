@@ -1,0 +1,6 @@
+<% @pitches.each do |pitch| %>
+  
+  <br><%= link_to pitch.pitchname, grounddetail_pitch_path(@grounddetail, pitch) %>
+
+<% end %>
+

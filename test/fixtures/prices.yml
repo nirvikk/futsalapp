@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mprice: 1
+  aprice: 1
+  eprice: 1
+  wkprice: 1
+  grounddetail_id: 
+
+two:
+  mprice: 1
+  aprice: 1
+  eprice: 1
+  wkprice: 1
+  grounddetail_id: 

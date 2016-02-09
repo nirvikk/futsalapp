@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-01-26 12:57:39
+  name: MyString
+  address: MyString
+  email: MyString
+  contact_no: 1
+  start_time: 2016-01-26 12:57:39
+  end_time: 2016-01-26 12:57:39
+  grounddetail_id: 
+
+two:
+  date: 2016-01-26 12:57:39
+  name: MyString
+  address: MyString
+  email: MyString
+  contact_no: 1
+  start_time: 2016-01-26 12:57:39
+  end_time: 2016-01-26 12:57:39
+  grounddetail_id: 

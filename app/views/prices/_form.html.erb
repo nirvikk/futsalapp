@@ -1,0 +1,29 @@
+<%= form_for([@grounddetail, @price]) do |f| %>
+
+  <% if @price.errors.any? %>
+        <div id="error_explanation">
+          <h2><b><%= pluralize(@price.errors.count, "error") %> </b>prohibited this price from being saved:</h2>
+
+          <ul>
+          <% @price.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+  <% end %>
+  
+  <%= f.label :mprice, "Morning Price" %>
+  <%= f.number_field :mprice %><br>
+
+  <%= f.label :aprice, "Afternoon Price" %>
+  <%= f.number_field :aprice %><br>
+
+  <%= f.label :eprice, "Evening Price" %>
+  <%= f.number_field :eprice %><br>
+
+  <%= f.label :wkprice, "Weekend Price" %>
+  <%= f.number_field :wkprice %><br>
+
+  <%= f.submit %>
+
+<% end %>

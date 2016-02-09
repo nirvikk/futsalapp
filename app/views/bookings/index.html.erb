@@ -1,0 +1,15 @@
+<h3><%= @grounddetail.name %></h3>
+<% @bookings.each do |booking| %>
+  
+  <br><br>Booking Date : <%= booking.date.strftime('%e %b %Y') %><br>
+
+  Bookers Name : <%= booking.name %><br>
+
+  Length Of Booking(In Hours) : <%= booking.length %><br>
+
+    <% (booking.start_date_cannot_be_in_the_past)%>
+    <% (booking.overlaps) %>
+
+  Booking Time : <%= booking.start_time.strftime('%e %b %Y %l:%M %P') %> To <%= (booking.calculate_end_time + 60).strftime('%l:%M %P') %><br>
+
+<% end %>

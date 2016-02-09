@@ -1,0 +1,35 @@
+<%= form_for([@grounddetail, @pitch, @booking]) do |f| %>
+
+  <% if @booking.errors.any? %>
+        <div id="error_explanation">
+          <h2><b><%= pluralize(@booking.errors.count, "error") %> </b>prohibited this booking from being saved:</h2>
+
+          <ul>
+          <% @booking.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+  <% end %>
+
+  <%= f.label :date, "Date Of Booking :" %>
+  <%= f.date_select :date %><br>
+
+  <%= f.label :name, "Booking In The Name :" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :address, "Address :" %>
+  <%= f.text_field :address %><br>
+
+  <%= f.label :email, "E-mail :" %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :start_time, "Booking Time :" %>
+  <%= f.datetime_select :start_time, { minute_step: 15 } %><br>
+
+  <%= f.label :length, "Length In Hours" %>
+  <%= f.number_field :length, placeholder: "Enter For How Many Hours"%><br>  
+  
+  <%= f.submit %>
+
+<% end %>

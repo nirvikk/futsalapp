@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grounddetail_id: 
+  booking_id: 
+
+two:
+  grounddetail_id: 
+  booking_id: 

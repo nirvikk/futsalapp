@@ -1,0 +1,11 @@
+<h2>Featured Ground</h2>
+
+<% @grounddetails.each do |grounddetail| %>
+
+  Name: <%= link_to grounddetail.name, grounddetail %><br>
+  Address: <%= grounddetail.address %><br>
+  Opening Hours: From<%= grounddetail.working_hours.strftime("%l:%M %P") %> To <%= grounddetail.end_time.strftime("%l:%M %P") %><br>
+  Featured : <%= check_box "Grounddetail", "Featured Ground", {checked: grounddetail.featured_ground, disabled: true} %><br><br>
+  
+
+<% end %>

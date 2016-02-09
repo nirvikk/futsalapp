@@ -1,0 +1,41 @@
+<%= form_for @grounddetail do |f| %>
+
+  <% if @grounddetail.errors.any? %>
+        <div id="error_explanation">
+          <h2><b><%= pluralize(@grounddetail.errors.count, "error") %> </b>prohibited this grounddetail from being saved:</h2>
+
+          <ul>
+          <% @grounddetail.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+  <% end %>
+  
+  <%= f.label :name, 'Ground Name:' %>
+  <%= f.text_field :name, placeholder: 'Enter Ground Name' %><br><br>
+
+  <%= f.label :working_hours, 'Ground Time:' %>
+  From <%= f.time_select :working_hours, { minute_step: 60 } %> To <%= f.time_select :end_time, { minute_step: 60 } %><br><br>
+
+  <%= f.label :address, 'Address:' %>
+  <%= f.text_field :address, placeholder: 'Ground Address' %><br><br>
+
+  <%= f.label :contact_no, 'Contact Number:' %>
+  <%= f.text_field :contact_no, placeholder: 'Enter Contact Number' %><br><br>
+
+  <%= f.label :email, 'E-mail:' %>
+  <%= f.text_field :email, placeholder: 'Enter email address' %><br><br>
+
+  <%= f.label :number_of_grounds, "Number Of Grounds In Futstal:" %>
+  <%= f.number_field :number_of_grounds, placeholder: 'Enter number of grounds in futstal' %><br><br>
+
+  <%= f.label :description, "Ground Description:" %>
+  <%= f.text_area :description, placeholder: 'Enter ground description' %><br><br>
+
+  <%= f.label :featured_ground, "Add Featured" %>
+  <%= f.check_box :featured_ground %><br><br>
+
+  <%= f.submit %>
+
+<% end %>
