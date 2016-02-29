@@ -12,18 +12,22 @@
         </div>
   <% end %>
   
+  <div class="form-group">
   <%= f.label :mprice, "Morning Price" %>
   <%= f.number_field :mprice %><br>
-
+</div>
+  <div class="form-group">
   <%= f.label :aprice, "Afternoon Price" %>
   <%= f.number_field :aprice %><br>
-
+</div>
+  <div class="form-group">
   <%= f.label :eprice, "Evening Price" %>
   <%= f.number_field :eprice %><br>
-
+</div>
+  <div class="form-group">
   <%= f.label :wkprice, "Weekend Price" %>
   <%= f.number_field :wkprice %><br>
-
-  <%= f.submit %>
+</div>
+  <%= f.submit 'Submit', :class => 'btn btn-default'  %><i class="fa fa-500px"></i>
 
 <% end %>

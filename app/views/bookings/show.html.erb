@@ -1,5 +1,15 @@
-<h3>Booking Confirmed For !!! </h3>
+<div class="container"><!-- Body Container -->
+<div class="row">
+<div class="col-xs-6">
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  
+	<ul><strong>Booking Confirmed For </strong><%= @booking.name %></ul>
+	<ul><strong>On </strong><%= @booking.date.strftime('%e %b %Y') %></ul>
+	<ul><strong>From </strong><%= @booking.start_time.strftime('%l:%M %P') %><strong> To </strong><%= @booking.end_time.strftime('%l:%M %P') %></ul>
 
-  Date : <%= @booking.date.strftime('%e %b %Y') %><br>
-  Name : <%= @booking.name %><br>
-  Time : From <%= @booking.start_time.strftime('%l:%M %P') %> To <%= @booking.end_time.strftime('%l:%M %P') %><br>
+</div>
+<%= link_to "Back to all Pitches", grounddetail_pitches_path(@grounddetail, @pitch), class: 'btn btn-default btn-xs' %>
+</div>
+</div>
+</div>

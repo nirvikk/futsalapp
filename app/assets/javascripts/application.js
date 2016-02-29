@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require sweetalert
+//= angular.min.js
+//= gmaps.js
 //= require sweet-alert-confirm
-// require_tree .
+//= require_tree 

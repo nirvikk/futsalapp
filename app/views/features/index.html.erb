@@ -1,11 +1,20 @@
-<h2>Featured Ground</h2>
-
-<% @grounddetails.each do |grounddetail| %>
-
-  Name: <%= link_to grounddetail.name, grounddetail %><br>
-  Address: <%= grounddetail.address %><br>
-  Opening Hours: From<%= grounddetail.working_hours.strftime("%l:%M %P") %> To <%= grounddetail.end_time.strftime("%l:%M %P") %><br>
-  Featured : <%= check_box "Grounddetail", "Featured Ground", {checked: grounddetail.featured_ground, disabled: true} %><br><br>
+<div class="container">
+	<div class = "row">
+		<div class="page-header">
+  <h2>Featured Grounds</h2><small></small>
+</div>
+		<div class = "col-md-5">
+			
+			<div class = "jumbotron">
+	<% @grounddetails.each do |grounddetail| %>
+<ul><%= link_to grounddetail.name, grounddetail, class: "btn btn-primary" %></ul>
+ <ul><i class="fa fa-map-marker"></i> <strong> Address:</strong> <%= grounddetail.address %></ul>
+  <ul><i class="fa fa-clock-o"></i><strong> Opening Hours:</strong> From<%= grounddetail.working_hours.strftime("%l:%M %P") %> To <%= grounddetail.end_time.strftime("%l:%M %P") %></ul>
+  <ul><i class="fa fa-hashtag"></i> Featured : <%= check_box "Grounddetail", "Featured Ground", {checked: grounddetail.featured_ground, disabled: true} %></ul>
   
 
 <% end %>
+</div>
+</div>
+</div>
+</div>

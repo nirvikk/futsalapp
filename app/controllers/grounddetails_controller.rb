@@ -38,8 +38,6 @@ class GrounddetailsController < ApplicationController
     @grounddetail.destroy
     redirect_to root_path
   end
-
-
   private
 
   def find_ground
@@ -47,7 +45,7 @@ class GrounddetailsController < ApplicationController
   end
 
   def ground_params
-    params.require(:grounddetail).permit(:name, :working_hours, :end_time, :address, :contact_no, :email, :number_of_grounds, :description, :featured_ground)
+    params.require(:grounddetail).permit(:name, :working_hours, :end_time, :address, :contact_no, :email, :number_of_grounds, :description, :iframe, :featured_ground, :image)
   end
 
 end

@@ -1,5 +1,4 @@
 class PitchesController < ApplicationController
-
   before_action :find_ground
 
   def index
@@ -26,6 +25,12 @@ class PitchesController < ApplicationController
     end
   end
 
+  def destroy
+    @pitch = Pitch.find(params[:id])
+    @pitch.destroy
+    redirect_to root_path
+  end
+
   private
 
   def find_ground
@@ -33,7 +38,7 @@ class PitchesController < ApplicationController
   end
 
   def pitch_params
-    params.require(:pitch).permit(:pitchname)
+    params.require(:pitch).permit(:pitchname, :image)
   end
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131103819) do
+ActiveRecord::Schema.define(version: 20160219082637) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,30 +48,11 @@ ActiveRecord::Schema.define(version: 20160131103819) do
 
   add_index "bookings", ["grounddetail_id"], name: "index_bookings_on_grounddetail_id"
 
-  create_table "grounddetails", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "working_hours"
-    t.string   "address"
-    t.string   "contact_no"
-    t.string   "email"
-    t.integer  "number_of_grounds"
-    t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.datetime "end_time"
-    t.boolean  "featured_ground"
-  end
+# Could not dump table "grounddetails" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
-  create_table "pitches", force: :cascade do |t|
-    t.integer  "grounddetail_id"
-    t.integer  "booking_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "pitchname"
-  end
-
-  add_index "pitches", ["booking_id"], name: "index_pitches_on_booking_id"
-  add_index "pitches", ["grounddetail_id"], name: "index_pitches_on_grounddetail_id"
+# Could not dump table "pitches" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "prices", force: :cascade do |t|
     t.integer  "mprice"

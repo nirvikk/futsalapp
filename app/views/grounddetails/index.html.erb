@@ -1,14 +1,20 @@
-<h2>All Grounds</h2>
-
+<div class="container">
+<div class="page-header">
+  <h1>All Grounds<small></small></h1>
+</div>
+<div class="row">
 <% @grounddetails.each do |grounddetail| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+            <%= link_to image_tag(grounddetail.image.url(:small), class: 'image'), grounddetail %>
+            <ul><h4><%=grounddetail.name%></h4></ul>
 
-  Name: <%= link_to grounddetail.name, grounddetail %><br>
-  Address: <%= grounddetail.address %><br>
-  Opening Hours: From<%= grounddetail.working_hours.strftime("%l:%M %P") %> To <%= grounddetail.end_time.strftime("%l:%M %P") %><br>
-  Featured : <%= check_box "Grounddetail", "Featured Ground", {checked: grounddetail.featured_ground, disabled: true} %><br><br>
-
+            <ul><span><i class="fa fa-map-marker"> <%= grounddetail.address %></i></span></ul>
+            <ul><strong>Working Hours:</strong> <%= grounddetail.working_hours.strftime("%l:%M %P") %> to <%= grounddetail.end_time.strftime("%l:%M %P") %></ul>
+      </div>
+    </div>
+  </div>
 <% end %>
-  
-<% if admin_signed_in? %>
-  <%= link_to "Add Ground", new_grounddetail_path %>
-<% end %>
+</div>
+</div>

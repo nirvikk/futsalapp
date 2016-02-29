@@ -6,26 +6,74 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/half-slider.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/font-awesome.min.css">
+<link rel="stylesheet" href="/bootstrap.css">
+<link rel="stylesheet" href="/bootstrap.min.css">
+
 </head>
+<body>
 
-<%= link_to "Homepage", root_path %>
-<%= link_to "Featured Ground", features_path %>
+<div id="wrapper">
+<header>  
+  <nav class="navbar nav-pills nav-justified">
 
-<% if admin_signed_in? %>
-                    
-    <%= link_to "Account Setting", edit_admin_registration_path %>
-    <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
-    <%= link_to "Featured Ground", features_path %>
+<div class="container">
+<ul class="nav navbar-nav">
+<li class="active">
+<li role="presentation" class="active"><%= link_to " Home", root_path, class: "fa fa-home" %></li>
+</li>
 
-  <% else %>
+<li><%= link_to " Show Futsals", grounddetails_path, class: "fa fa-soccer-ball-o"%></li>
+<li><%= link_to " Featured Grounds", features_path, class: "fa fa-eye" %></li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
   
-    <li><%= link_to "Log In", new_admin_session_path %></li>
-    <li><%= link_to "Sign Up", new_admin_registration_path %></li>
-  
-  </ul>
-  <% end %>
-  <%= yield %>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class= "fa fa-user"></span></a>
 
+
+<ul class="dropdown-menu">
+  <% if admin_signed_in? %>
+            <li><%= link_to " Account Settings", edit_admin_registration_path, class: "fa fa-gear" %></li>
+            <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete, class: "fa fa-sign-out"%></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to " Add Ground", new_grounddetail_path, class: "fa fa-plus-square"%></li>
+           
+<% else %> 
+            <li><%= link_to " Log In", new_admin_session_path, class: "fa fa-sign-in"%></li>
+            <li><%= link_to " Sign Up", new_admin_registration_path, class: "fa fa-user-plus"%></li>
+            </li>
+
+<% end %>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+</ul>
+
+</ul>
+</div><!-- @Container -->
+</nav>
+
+</header><!-- header -->
+  
+<div id="content-wrapper">
+  <%=yield%>
+</div><!-- Content Wrapper -->  
+
+  <footer>
+    <div class="panel-footer"><div class="follow">
+           
+            <div class="social-links">
+              <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" title="Google"><i class="fa fa-google-plus"></i></a>
+              <a href="#" title="Wiki"><i class="fa fa-wikipedia-w"></i></a>
+            </div>
+          </div></div>
+  </footer>
+</div><!-- @WRAPPER-->
+
+</body>
 </html>
+

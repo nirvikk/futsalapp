@@ -1,6 +1,12 @@
-<% @pitches.each do |pitch| %>
-  
-  <br><%= link_to pitch.pitchname, grounddetail_pitch_path(@grounddetail, pitch) %>
-
-<% end %>
-
+<div class="container"><!-- Body Container -->
+<div class="row">
+<div class="col-sm-6 col-md-4">
+<div class="jumbotron">
+	<ul><%= link_to "Back to Ground", grounddetail_path(@grounddetail), class: 'btn btn-default btn-xs' %></ul>
+	<ul><% @pitches.each do |pitch| %>
+  	  <%= link_to pitch.pitchname, grounddetail_pitch_path(@grounddetail, pitch), class: 'btn btn-default btn-xs' %>
+	<% end %></ul>
+</div>
+</div>
+</div>
+</div>

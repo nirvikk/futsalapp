@@ -11,25 +11,34 @@
           </ul>
         </div>
   <% end %>
+  <div class = "form-group"><i class="fa fa-calendar"></i>
+  <%= f.label :date, "Date Of Booking:  " %>
 
-  <%= f.label :date, "Date Of Booking :" %>
-  <%= f.date_select :date %><br>
+  <%= f.date_select :date %>
+</div>
+  <div class = "form-group"><i class="fa fa-user"></i>
+  <%= f.label :name, "Booking In The Name of:" %>
+  <%= f.text_field :name, class: "form-control", placeholder: "Enter the your name for booking" %>
+  </div>
 
-  <%= f.label :name, "Booking In The Name :" %>
-  <%= f.text_field :name %><br>
-
+  <div class = "form-group"><i class="fa fa-map-marker"></i>
   <%= f.label :address, "Address :" %>
-  <%= f.text_field :address %><br>
+  <%= f.text_field :address, class: "form-control", placeholder: "Enter your address" %>
+  </div>
 
+  <div class = "form-group"><i class="fa fa-envelope"></i>
   <%= f.label :email, "E-mail :" %>
-  <%= f.text_field :email %><br>
+  <%= f.text_field :email, class: "form-control", placeholder: "Enter your email address" %>
+  </div>
+  <div class = "form-group"><i class="fa fa-clock-o"></i>
 
-  <%= f.label :start_time, "Booking Time :" %>
-  <%= f.datetime_select :start_time, { minute_step: 15 } %><br>
-
-  <%= f.label :length, "Length In Hours" %>
-  <%= f.number_field :length, placeholder: "Enter For How Many Hours"%><br>  
-  
-  <%= f.submit %>
+  <%= f.label :start_time, "Booking Time :" %><br>
+  <%= f.datetime_select :start_time, { minute_step: 15 } %>
+  </div>
+  <div class = "form-group"><i class="fa fa-hourglass-half"></i>
+  <%= f.label :length, "Length In Hours:" %>
+  <%= f.number_field :length, class: "form-control", placeholder: "Enter For How Many Hours"%>
+  </div>
+  <%= f.submit 'Submit', :class => 'btn btn-primary' %>
 
 <% end %>

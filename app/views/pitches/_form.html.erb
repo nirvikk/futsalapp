@@ -1,8 +1,9 @@
 <%= form_for([@grounddetail, @pitch]) do |f| %>
-
+	<div class="form-group">
   <%= f.label :pitchname, "Pitch Name :" %>
-  <%= f.text_field :pitchname, placeholder: "Enter Pitch Name :" %><br><br>
+  <%= f.text_field :pitchname, placeholder: "Enter Pitch Name :" %>
+</div>
 
-  <%= f.submit %>
+  <%= f.submit 'Submit', :class => 'btn btn-primary'  %>
 
 <% end %> 

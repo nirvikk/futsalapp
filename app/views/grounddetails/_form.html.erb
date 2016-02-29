@@ -1,4 +1,5 @@
-<%= form_for @grounddetail do |f| %>
+
+<%= form_for @grounddetail,html: { multipart: true } do |f| %>
 
   <% if @grounddetail.errors.any? %>
         <div id="error_explanation">
@@ -11,31 +12,54 @@
           </ul>
         </div>
   <% end %>
-  
+  <div class = "form-group">
   <%= f.label :name, 'Ground Name:' %>
-  <%= f.text_field :name, placeholder: 'Enter Ground Name' %><br><br>
-
-  <%= f.label :working_hours, 'Ground Time:' %>
-  From <%= f.time_select :working_hours, { minute_step: 60 } %> To <%= f.time_select :end_time, { minute_step: 60 } %><br><br>
-
+  <%= f.text_field :name, class: "form-control", placeholder: 'Enter Ground Name' %>
+  </div>
+  <div class = "form-group"><i class="fa fa-clock-o"></i>
+  <%= f.label :working_hours, 'Ground Time:' %><br>
+  From <%= f.time_select :working_hours, { minute_step: 60 } %> To <%= f.time_select :end_time, { minute_step: 60 } %>
+  </div>
+  <div class = "form-group"><i class="fa fa-map-marker"></i>
   <%= f.label :address, 'Address:' %>
-  <%= f.text_field :address, placeholder: 'Ground Address' %><br><br>
 
+  <%= f.text_field :address, class: "form-control", placeholder: 'Ground Address' %>
+  </div>
+  <div class = "form-group"><i class="fa fa-map-o"></i>
+  <%= f.label :iframe, 'Ground Map Location:' %>
+
+  <%= f.text_field :iframe, class: "form-control", placeholder: 'iFrame' %>
+  </div>
+  <div class = "form-group"><i class="fa fa-phone"></i>
   <%= f.label :contact_no, 'Contact Number:' %>
-  <%= f.text_field :contact_no, placeholder: 'Enter Contact Number' %><br><br>
-
+  <%= f.text_field :contact_no, class: "form-control", placeholder: 'Enter Contact Number' %>
+  </div>
+  <div class = "form-group"><i class="fa fa-envelope"></i>
   <%= f.label :email, 'E-mail:' %>
-  <%= f.text_field :email, placeholder: 'Enter email address' %><br><br>
-
+  <%= f.text_field :email, class: "form-control", placeholder: 'Enter email address' %>
+  </div>
+  <div class = "form-group">
   <%= f.label :number_of_grounds, "Number Of Grounds In Futstal:" %>
-  <%= f.number_field :number_of_grounds, placeholder: 'Enter number of grounds in futstal' %><br><br>
-
+  <%= f.number_field :number_of_grounds, class: "form-control", placeholder: 'Enter number of grounds in futstal' %>
+  </div>
+  <div class = "form-group">
   <%= f.label :description, "Ground Description:" %>
-  <%= f.text_area :description, placeholder: 'Enter ground description' %><br><br>
+  <%= f.text_area :description, class: "form-control", placeholder: 'Enter ground description' %>
+  </div>
+  <div class = "form-group"><i class="fa fa-hashtag"></i>
 
   <%= f.label :featured_ground, "Add Featured" %>
-  <%= f.check_box :featured_ground %><br><br>
+  <%= f.check_box :featured_ground %>
+  </div>
+  <div class="form-group"><i class="fa fa-camera"></i>
+        <%= f.label :image%>
+        <%= f.file_field :image%>
+  </div>
+<div class="btn-group">
+  <%= f.submit 'Submit', :class => 'btn btn-primary' %>
 
-  <%= f.submit %>
+<% end %>  
+</div>
 
-<% end %>
+
+

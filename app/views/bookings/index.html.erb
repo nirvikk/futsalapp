@@ -1,15 +1,27 @@
-<h3><%= @grounddetail.name %></h3>
+<div class="container">
+<div class="page-header">
+		<h1><i class="fa fa-shopping-cart"></i> <small>All Bookings For </small><%= @grounddetail.name %> <small><%= @pitch.pitchname%></small></h1>
+</div>
+<div class="row">
 <% @bookings.each do |booking| %>
-  
-  <br><br>Booking Date : <%= booking.date.strftime('%e %b %Y') %><br>
+<div class="col-sm-6 col-md-4">
+<div class="thumbnail">
+	<div class="caption">
+  <ul><i class="fa fa-calendar"></i> <strong>Booking Date: </strong><%= booking.date.strftime('%e %b %Y') %></ul>
 
-  Bookers Name : <%= booking.name %><br>
+  <ul><i class="fa fa-user"></i> <strong>Bookers Name: </strong><%= booking.name %></ul>
 
-  Length Of Booking(In Hours) : <%= booking.length %><br>
+  <ul><i class="fa fa-hourglass-half"></i> <strong>Length Of Booking: </strong><small><%= booking.length %> hour(s)</small></ul>
 
     <% (booking.start_date_cannot_be_in_the_past)%>
     <% (booking.overlaps) %>
 
-  Booking Time : <%= booking.start_time.strftime('%e %b %Y %l:%M %P') %> To <%= (booking.calculate_end_time + 60).strftime('%l:%M %P') %><br>
-
+  <ul><i class="fa fa-clock-o"></i> <strong>Booking Time: </strong><%= booking.start_time.strftime('%e %b %Y %l:%M %P') %> <strong>To </strong><%= (booking.calculate_end_time + 60).strftime('%l:%M %P') %></ul>
+</div>
+</div>
+</div>
 <% end %>
+
+</div>
+<ul><span><i class="fa fa-arrow-left"></i> <%= link_to "Back to Pitch", grounddetail_pitch_path(@grounddetail, @pitch), class: 'btn btn-default btn-xs' %></span></ul>
+</div>

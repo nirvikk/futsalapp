@@ -1,0 +1,65 @@
+<head>
+<link rel="stylesheet" href="/font-awesome.min.css">
+<link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/newmaps.js"></script>
+</head>
+
+<div class="container"><!-- Body Container -->
+<div class="row">
+	<div id="map">
+	</div>
+<div class="col-xs-6">
+<div class="alert alert-success">
+  <strong>What is Futsal?<br></strong> Futsal is a variant of football played on a smaller field and mainly indoors.
+</div>
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>How many players can play?</strong> It can be considered a version of five-a-side football.
+</div>
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>When was it originated? </strong> It originated in 1930.
+</div>
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Where was it first played? </strong> It was first played in Uruguay.
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+new GMaps({
+  div: '#map',
+  lat: -12.043333,
+  lng: -77.028333
+});
+
+map.addMarker({
+  lat: -12.043333,
+  lng: -77.028333,
+  title: 'Lima',
+  click: function(e) {
+    alert('You clicked in this marker');
+  }
+});
+
+infoWindow: {
+  content: '<p>HTML Content</p>'
+};
+
+GMaps.geolocate({
+  success: function(position) {
+    map.setCenter(position.coords.latitude, position.coords.longitude);
+  },
+  error: function(error) {
+    alert('Geolocation failed: '+error.message);
+  },
+  not_supported: function() {
+    alert("Your browser does not support geolocation");
+  },
+  always: function() {
+    alert("Done!");
+  }
+});
+</script>

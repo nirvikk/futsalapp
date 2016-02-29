@@ -1,7 +1,13 @@
-<h3>Pitches</h3>
-
-<br><%= @pitch.pitchname %>
-
-<%= link_to "Book Now", new_grounddetail_pitch_booking_path(@grounddetail, @pitch) %>
-
-
+<div class="container"><!-- Body Container -->
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="jumbotron">
+<%= link_to "Back to all Pitches", grounddetail_pitches_path(@grounddetail, @pitch), class: 'btn btn-default btn-xs' %>
+<h3><%= @pitch.pitchname %></h3>
+<%= link_to "Book Now", new_grounddetail_pitch_booking_path(@grounddetail, @pitch), class: 'btn btn-info btn-xs' %>
+<%= link_to 'Delete Pitch', grounddetail_pitch_path(@grounddetail, @pitch), method: :delete, data: {confirm: 'Are you sure to delete?' }, class: 'btn btn-danger btn-xs' %>
+<%= link_to "View Bookings", grounddetail_pitch_bookings_path(@grounddetail, @pitch, @booking), class: 'btn btn-default btn-xs' %>
+</div>
+</div>
+</div>
+</div>

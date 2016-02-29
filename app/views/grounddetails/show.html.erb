@@ -1,21 +1,72 @@
-<h4>Ground Details</h4>
 
-Name : <%= @grounddetail.name %><br>
-Opening Time : <%= @grounddetail.working_hours.strftime("%l:%M %P") %> To <%= @grounddetail.end_time.strftime("%l:%M %P") %><br>
-Address: <%= @grounddetail.address %><br>
-Contact Number: <%= @grounddetail.contact_no %><br>
-Email Address: <%= @grounddetail.email %><br>
-Number Of Grounds: <%= @grounddetail.number_of_grounds %><br>
-Description: <%= @grounddetail.description %><br>
-Featured : <%= @grounddetail.featured_ground%><br>
+<div class="container"><!-- Body Container -->
+  <div class="page-header">
+  <h1><i class="fa fa-soccer-ball-o"></i><%= @grounddetail.name %><br><small>ground details</small></h1>
+</div>
 
-<% if admin_signed_in? %>
-  <%= link_to "Edit", edit_grounddetail_path %> |
-  <%= link_to 'Delete Ground', grounddetail_path,method: :delete, data: {confirm: 'Are you sure?' } %> |
-  <%= link_to "Add price", new_grounddetail_price_path(@grounddetail) %> |
-  <%= link_to "Timing And Prices", grounddetail_prices_path(@grounddetail) %> |
+<div class="row">
+<div class="col-md-6">
+<div class="jumbotron">
+<ul><%= link_to image_tag(@grounddetail.image.url(:small), class: 'image') %></ul>
+ <ul><span> <i class="fa fa-map-marker"></i> <%= @grounddetail.address %></span></ul>
+ <ul><span><i class="fa fa-map-o" data-toggle="modal" data-target="#mapmodal"> Click to Open Map</i></span></ul>
+  <ul><span> <i class="fa fa-phone"></i> <%= @grounddetail.contact_no %></span></ul>
+   <ul><span> <i class="fa fa-envelope"></i> <%= @grounddetail.email %></span></ul>
+    <ul><strong>Number of Grounds:</strong> <%= @grounddetail.number_of_grounds %></ul>
+     <ul><strong>Description:</strong> <%= @grounddetail.description %></ul>
+     <ul><strong>Working Hours:</strong> <%= @grounddetail.working_hours.strftime("%l:%M %P") %> to <%= @grounddetail.end_time.strftime("%l:%M %P") %></ul>
+     </div>
+</div>
+
+<div class = "col-md-6">
+  <div class = "jumbotron">
+        <% if admin_signed_in? %>
+          <ul class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Admin Actions <i class="fa fa-chevron-circle-down"></i>
+</a>
+               <ul class="dropdown-menu">
+               <ul> <span><%= link_to " Edit", edit_grounddetail_path, class: 'fa fa-pencil-square-o' %></span></ul>
+  <ul><%= link_to 'Delete Ground', grounddetail_path,method: :delete, data: {confirm: 'Are you sure to delete?' }, class: 'btn btn-danger btn-xs' %><i class="icon-trash icon-large"></i></ul>
+  <ul><%= link_to "Add price", new_grounddetail_price_path(@grounddetail), class: 'btn btn-primary btn-xs' %></ul>
+  <ul><%= link_to "Add Pitch", new_grounddetail_pitch_path(@grounddetail), class: 'btn btn-primary btn-xs' %></ul>
 <% end %>
 
-<%= link_to "Add Pitch", new_grounddetail_pitch_path(@grounddetail) %> |
-<%= link_to "All Pitch", grounddetail_pitches_path(@grounddetail) %>
+        <!-- dropdown menu links -->
+      </ul>
+    </ul>
+  </ul>
+    <div class="container-fluid">
+    
+<ul><%= link_to "Timing And Prices", grounddetail_prices_path(@grounddetail), class: 'btn btn-info btn-xs' %></ul>
 
+<ul><span><i class="fa fa-map-o" data-toggle="modal" data-target="#pricemodal"> Click to View Timings</i></span></u>
+
+<ul><%= link_to "View Pitches to Book Ground", grounddetail_pitches_path(@grounddetail, @pitch), class: "btn btn-default btn-lg btn-block"%></ul>
+    </div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MapModal -->
+<div id="mapmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <iframe class="futsalmap" src="<%=@grounddetail.iframe%>"></iframe>
+    </div>
+  </div>
+</div>
+
+<div id="pricemodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <table class="table">
+        <tr><th>Timings</th><th>Price</th></tr>
+        <tr><td>0800</td><td>1000</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
