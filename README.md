@@ -1,6 +1,4 @@
 <<<<<<< HEAD
-# FinalFutsal
-This is the final version of our Futsal app on Rails
 =======
 # futsalapp
 Ruby on Rails project to book futsal grounds in Kathmandu for a specific date and time.
